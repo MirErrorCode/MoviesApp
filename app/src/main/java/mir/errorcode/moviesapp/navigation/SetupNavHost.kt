@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import mir.errorcode.moviesapp.MainViewModel
 import mir.errorcode.moviesapp.screens.MainScreen
 import mir.errorcode.moviesapp.screens.SplashScreen
 import mir.errorcode.moviesapp.utils.Constants
@@ -22,7 +23,7 @@ sealed class Screens(val route: String){
 
 
 @Composable
-fun SetupNavHost(navController: NavHostController) {
+fun SetupNavHost(navController: NavHostController, viewModel : MainViewModel) {
 
     NavHost(
         navController = navController,
@@ -30,10 +31,10 @@ fun SetupNavHost(navController: NavHostController) {
     ) {
 
         composable(route = Screens.Splash.route) {
-            SplashScreen(navController)
+            SplashScreen(navController = navController, viewModel = viewModel)
         }
         composable(route = Screens.Main.route){
-            MainScreen()
+            MainScreen(navController = navController, viewModel = viewModel)
         }
         composable(route = Screens.Details.route){
 

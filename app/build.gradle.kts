@@ -84,6 +84,9 @@ dependencies {
     kapt(libs.hilt.compiler)                          // Hilt annotation processor (KAPT)
     implementation(libs.androidx.hilt.navigation.compose) // Hilt integration with Navigation Compose
 
+    // Coil
+    implementation(libs.coil.compose)
+
 
 
 }
